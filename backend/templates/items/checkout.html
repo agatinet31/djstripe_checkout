@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+  Buy Item {{ item.id }}
+{% endblock %}
+{% block content %}
+  <div class="container py-5">
+    <h1>{{ item.name }}</h1>
+    <p>{{ item.description }}</p>
+    <button id="buy-button">Buy</button>
+    <script type="text/javascript">
+      var stripe = Stripe('{{ pk_api_key }}');
+      var buyButton = document.getElementById('buy-button');
+      buyButton.addEventListener('click', function() {
+        fetch('/buy/{{ item.id }}', {method: 'GET'})
+        .then(response => response.json())
+        .then(session => stripe.redirectToCheckout({ sessionId: session.session_id }))
+      });
+    </script>
+  </div>
+{% endblock %}
