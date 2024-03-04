@@ -53,8 +53,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "payments.urls"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 
 TEMPLATES = [
@@ -120,8 +118,6 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
-print(STATIC_ROOT)
 
 MEDIA_URL = "/media/"
 
