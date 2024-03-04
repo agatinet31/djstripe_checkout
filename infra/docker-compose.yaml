@@ -33,7 +33,7 @@ services:
       - db
     restart: unless-stopped
     volumes:
-      - static_data:/app/static/
+      - static_data:/app/staticfiles/
       - media_data:/app/media/
       - locale_data:/app/locale/
       - ../.env:/app/.env
@@ -46,7 +46,7 @@ services:
       dockerfile: Dockerfile_Backend.dev
     container_name: migrations_db
     volumes:
-      - static_data:/app/static/
+      - static_data:/app/staticfiles/
       - media_data:/app/media/
       - ../.env:/app/.env
     command: >
